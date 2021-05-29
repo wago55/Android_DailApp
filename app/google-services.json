@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "727355705605",
+    "project_id": "dail-bb98e",
+    "storage_bucket": "dail-bb98e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727355705605:android:f7940d711fbe41e6964f6c",
+        "android_client_info": {
+          "package_name": "app.wago.wagochan.dail"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727355705605-iecq860q6e76h5ld3anat8j24me4opku.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDgyILowkzfgKLioNUTGVRU6Z4T-Og1tQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727355705605-iecq860q6e76h5ld3anat8j24me4opku.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
