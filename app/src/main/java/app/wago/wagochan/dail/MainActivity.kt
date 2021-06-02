@@ -2,6 +2,7 @@ package app.wago.wagochan.dail
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -19,12 +20,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_new_post.*
 import java.io.InputStream
 
+//import com.google.firebase.storage.ktx.component1
+//import com.google.firebase.storage.ktx.component2
 //import com.google.firebase.storage.StorageReference
-
 
 class MainActivity : AppCompatActivity() {
 
     val readRequestCode: Int = 42
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +55,36 @@ class MainActivity : AppCompatActivity() {
 
 
         val storage = Firebase.storage
-        val storageRef = storage.getReferenceFromUrl("gs://dail-bb98e.appspot.com/document/image:20214")
+        //var PicByFireBaseData: List<PicByFireBaseData> = listOf(
+         //       PicByFireBaseData()
+        //)
+      //  var storageRef: StorageReference? = null
+       // while (storageRef != null){
+        //    storageRef = storage.getReferenceFromUrl("gs://dail-bb98e.appspot.com/document/image:\\*")
+        //}
+       val storageRef = storage.getReferenceFromUrl("gs://dail-bb98e.appspot.com/document/image:20251")
+//        val listRef = storage.reference.child("files/uid")
+//        listRef.listAll()
+//                .addOnSuccessListener { (items, prefixes) ->
+//                    prefixes.forEach { prefix ->
+//                         All the prefixes under listRef.
+//                         You may call listAll() recursively on them.
+//                    }
+//
+//                    items.forEach { item ->
+//                         All the items under listRef.
+//                        GlideApp.with(this)
+//                                .load(listRef)
+//                                .centerCrop()
+//                                .into(get_pic_out)
+//                    }
+//                }
+//                .addOnFailureListener {
+                    // Uh-oh, an error occurred!
+//                }
+
+
+
         //val dir = storageRef.child("document/image:19934")
 
        // val ONE_MEGABYTE: Long = 1024 * 1024
