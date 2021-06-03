@@ -4,8 +4,8 @@ import android.net.Uri
 import com.google.firebase.storage.StorageReference
 
 data class PicByFireBaseData (
-        val picUriLeft: StorageReference,
-        val picUriRight: StorageReference
+        var picUriLeft: StorageReference,
+        var picUriRight: StorageReference
         )
 
 

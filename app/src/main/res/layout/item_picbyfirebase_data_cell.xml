@@ -15,14 +15,18 @@
             android:id="@+id/imageButton_right"
             android:layout_width="160dp"
             android:layout_height="160dp"
+            android:layout_margin="10dp"
             android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageButton
             android:id="@+id/imageButton_left"
             android:layout_width="160dp"
             android:layout_height="160dp"
+            android:layout_margin="10dp"
             android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
             tools:srcCompat="@tools:sample/avatars" />
     </LinearLayout>
 
