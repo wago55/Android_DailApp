@@ -21,6 +21,7 @@ import com.google.firebase.storage.ktx.storage
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_new_post.*
 import java.io.InputStream
+import com.bumptech.glide.annotation.GlideModule
 
 import com.google.firebase.storage.ktx.component1
 import com.google.firebase.storage.ktx.component2

@@ -2,14 +2,17 @@ package app.wago.wagochan.dail
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.core.view.PointerIconCompat.load
 import androidx.recyclerview.widget.RecyclerView
+import app.wago.wagochan.dail.ActivityNewPost.Companion.EXTRA_TEXTDATA
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_main.*
@@ -40,6 +43,20 @@ class RecyclerViewAdapter(private val context: Context): RecyclerView.Adapter<Re
 //        holder.picRight = item.picUriRight
 //        holder.picLeft.setImageResource(item.picUriLeft)
 //        holder.picRight.setImageResource(item.picUriRight)
+        holder.picRight.setOnClickListener{
+            val intent = Intent(context, PicDetailActivity::class.java)
+            intent.putExtra(EXTRA_TEXTDATA, item.picUriRight.toString())
+            context.startActivity(intent)
+            Toast.makeText(it.context, "Clicked ${item.picUriRight}", Toast.LENGTH_SHORT).show()
+        }
+
+        holder.picLeft.setOnClickListener{
+            val intent = Intent(context, PicDetailActivity::class.java)
+            intent.putExtra(EXTRA_TEXTDATA, item.picUriLeft.toString())
+            context.startActivity(intent)
+            Toast.makeText(it.context, "Clicked ${item.picUriLeft}", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
     fun addAll(items: MutableList<PicByFireBaseData>){
