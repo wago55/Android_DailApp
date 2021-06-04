@@ -8,4 +8,8 @@ data class PicByFireBaseData (
         var picUriRight: StorageReference
         )
 
+//data class PicByFireBaseDataRight (
+//        var picUriRight: StorageReference
+//        )
+
 

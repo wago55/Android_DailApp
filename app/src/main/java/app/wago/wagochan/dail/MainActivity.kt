@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
     val readRequestCode: Int = 42
 
     val PicByFireBaseData: MutableList<PicByFireBaseData> = mutableListOf()
+//    val PicByFireBaseDataRight: MutableList<PicByFireBaseDataRight> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,7 +98,8 @@ class MainActivity : AppCompatActivity() {
 
                     items.forEach { item ->
                         //textView.text = item.path
-                        PicByFireBaseData.add(PicByFireBaseData(item,item))
+                        PicByFireBaseData.add(PicByFireBaseData(item, item))
+
                        // textView.text = PicByFireBaseData.toString()
 //                         All the items under listRef.
 //                        textView.text = PicByFireBaseData.toString()
@@ -107,6 +109,8 @@ class MainActivity : AppCompatActivity() {
 //                                    .into(get_pic_out)
 //                        adapter.addAll(PicByFireBaseData)
                     }
+
+//                    items.filter { PicByFireBaseDataLeft.add(PicByFireBaseDataLeft(it )) }
                     adapter.addAll(PicByFireBaseData)
                   //  textView.text =
                 }
