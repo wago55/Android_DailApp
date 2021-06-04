@@ -102,10 +102,11 @@ class MainActivity : AppCompatActivity() {
 //                         All the items under listRef.
 //                        textView.text = PicByFireBaseData.toString()
 //                            GlideApp.with(this)
-//                                    .load(PicByFireBaseData[0].picUriRight)
+//                                    .load("gs://dail-bb98e.appspot.com/document/image:20251")
 //                                    .centerCrop()
-//                                    .into(get_pic_out)
+//                                    .into(imageView4)
 //                        adapter.addAll(PicByFireBaseData)
+
                     }
                     adapter.addAll(PicByFireBaseData)
                   //  textView.text =
