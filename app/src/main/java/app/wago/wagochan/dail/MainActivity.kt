@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -43,6 +44,8 @@ class MainActivity : AppCompatActivity() {
             val toSecondActivityIntent = Intent(this, ActivityNewPost::class.java)
             startActivity(toSecondActivityIntent)
         }
+
+
 
 //        imageButton_right.setOnClickListener{
 //            val toSecondActivityIntent = Intent(this, ActivityNewPost::class.java)
@@ -102,10 +105,11 @@ class MainActivity : AppCompatActivity() {
 //                         All the items under listRef.
 //                        textView.text = PicByFireBaseData.toString()
 //                            GlideApp.with(this)
-//                                    .load(PicByFireBaseData[0].picUriRight)
+//                                    .load("gs://dail-bb98e.appspot.com/document/image:20251")
 //                                    .centerCrop()
-//                                    .into(get_pic_out)
+//                                    .into(imageView4)
 //                        adapter.addAll(PicByFireBaseData)
+
                     }
                     adapter.addAll(PicByFireBaseData)
                   //  textView.text =

@@ -47,14 +47,14 @@ class RecyclerViewAdapter(private val context: Context): RecyclerView.Adapter<Re
             val intent = Intent(context, PicDetailActivity::class.java)
             intent.putExtra(EXTRA_TEXTDATA, item.picUriRight.toString())
             context.startActivity(intent)
-            Toast.makeText(it.context, "Clicked ${item.picUriRight}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(it.context, "Clicked ${item.picUriRight}, ${position}", Toast.LENGTH_SHORT).show()
         }
 
         holder.picLeft.setOnClickListener{
             val intent = Intent(context, PicDetailActivity::class.java)
             intent.putExtra(EXTRA_TEXTDATA, item.picUriLeft.toString())
             context.startActivity(intent)
-            Toast.makeText(it.context, "Clicked ${item.picUriLeft}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(it.context, "Clicked ${item.picUriLeft}, ${position}", Toast.LENGTH_SHORT).show()
         }
 
     }
