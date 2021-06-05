@@ -11,9 +11,16 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.net.toUri
 import androidx.core.view.isVisible
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.ktx.storage
+import com.google.type.Date
 import kotlinx.android.synthetic.main.activity_upload_post.*
 import java.io.File
+
+
 
 class ActivityUploadPost : AppCompatActivity() {
 
@@ -53,16 +60,39 @@ class ActivityUploadPost : AppCompatActivity() {
 
 
                 get_imageView.setVisibility(View.INVISIBLE)
+                comment.setVisibility(View.INVISIBLE)
                 loading.setVisibility(View.VISIBLE)
 
                 val pic_uri: Uri = get_pic_uri.toUri()
                 val path = pic_uri.getPath()
                 val file:File = File(path)
                 val storage = FirebaseStorage.getInstance()
+//                fire store
+                val db = FirebaseFirestore.getInstance()
+                data class Caption(
+                    var caption: String,
+                    var uri: String
+                )
+                val cap: String = comment.text.toString()
+                val picUri: String = get_pic_uri
+                val data = Caption(cap, picUri)
+//                Toast.makeText(applicationContext, data.toString(), Toast.LENGTH_SHORT).show()
+               db.collection("caption").document().set(data)
+                    .addOnSuccessListener {
+//                        Toast.makeText(applicationContext, data.toString(), Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnFailureListener{
+
+                    }
+
+//
+//                storage
                 val storageRef = storage.getReferenceFromUrl("gs://dail-bb98e.appspot.com")
                 val dir = storageRef.child(file.toString())
                 val task = dir.putFile(pic_uri)
+//
                 task.addOnSuccessListener {
+//                    db.collection("comment").add(data)
                     val toMainActivityIntent = Intent(this, MainActivity::class.java)
                     startActivity(toMainActivityIntent)
                     Toast.makeText(applicationContext,"アップロード成功", Toast.LENGTH_SHORT).show()
