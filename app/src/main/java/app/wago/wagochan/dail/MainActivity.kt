@@ -69,10 +69,10 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
+        var picList: MutableList<StorageReference> = mutableListOf()
 
         val storage = Firebase.storage
-        //var PicByFireBaseData: List<PicByFireBaseData> = listOf(
+//        var PicByFireBaseData: List<PicByFireBaseData> = listOf(
          //       PicByFireBaseData()
         //)
 //        var storageRef: StorageReference? = null
@@ -98,9 +98,9 @@ class MainActivity : AppCompatActivity() {
 //                         You may call listAll() recursively on them.
                     }
 
-                    items.forEach { item ->
+//                    items.forEach { item ->
                         //textView.text = item.path
-                        PicByFireBaseData.add(PicByFireBaseData(item,item))
+//                        PicByFireBaseData.add(PicByFireBaseData(item,item))
                        // textView.text = PicByFireBaseData.toString()
 //                         All the items under listRef.
 //                        textView.text = PicByFireBaseData.toString()
@@ -110,7 +110,35 @@ class MainActivity : AppCompatActivity() {
 //                                    .into(imageView4)
 //                        adapter.addAll(PicByFireBaseData)
 
+//                    }
+//                    Toast.makeText(applicationContext,"${items.size}", Toast.LENGTH_SHORT).show()
+
+                     items.forEach { item ->
+                         picList.add(item)
+                     }
+                    if(items.size % 2 == 0) {
+                        picList.chunked(2).forEach { chunck ->
+                            PicByFireBaseData.add(PicByFireBaseData(chunck[0], chunck[1]))
+//                            Toast.makeText(applicationContext,"${picList.chunked(2).size}", Toast.LENGTH_SHORT).show()
+//                            Toast.makeText(applicationContext,"${PicByFireBaseData.size}", Toast.LENGTH_SHORT).show()
+                        }
                     }
+                    else{
+                        var i: Int = 0
+                        picList.chunked(2).forEach { chunck ->
+                            i += 1
+                            if(i == picList.chunked(2).size){
+                                val storageRef = storage.getReferenceFromUrl("gs://dail-bb98e.appspot.com/document/Dail.jpg")
+                                PicByFireBaseData.add(PicByFireBaseData(chunck[0], storageRef))
+                            }
+                            else {
+                                PicByFireBaseData.add(PicByFireBaseData(chunck[0], chunck[1]))
+                            }
+//                            Toast.makeText(applicationContext,"${picList.chunked(2).size}", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+
                     adapter.addAll(PicByFireBaseData)
                   //  textView.text =
                 }
