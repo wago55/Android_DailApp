@@ -10,13 +10,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.net.toUri
-import androidx.core.view.isVisible
-import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.ktx.storage
-import com.google.type.Date
 import kotlinx.android.synthetic.main.activity_upload_post.*
 import java.io.File
 
@@ -38,7 +33,7 @@ class ActivityUploadPost : AppCompatActivity() {
 
         if(get_pic_uri != null){
             val pic_uri: Uri = get_pic_uri.toUri()
-            get_imageView.setImageURI(pic_uri)
+            imageView.setImageURI(pic_uri)
         }
     }
 
@@ -59,7 +54,7 @@ class ActivityUploadPost : AppCompatActivity() {
             //textView.text = get_pic_uri
 
 
-                get_imageView.setVisibility(View.INVISIBLE)
+                imageView.setVisibility(View.INVISIBLE)
                 comment.setVisibility(View.INVISIBLE)
                 loading.setVisibility(View.VISIBLE)
 
@@ -107,6 +102,7 @@ class ActivityUploadPost : AppCompatActivity() {
             //val toMainActivityIntent = Intent(this, MainActivity::class.java)
             //startActivity(toMainActivityIntent)
         }
+
         return super.onOptionsItemSelected(item)
     }
 }
