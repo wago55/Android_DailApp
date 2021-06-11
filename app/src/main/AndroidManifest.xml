@@ -9,15 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".PicDetailActivity"></activity>
-        <activity android:name=".ActivityUploadPost" />
-        <activity android:name=".ActivityNewPost" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".PicDetailActivity" />
+        <activity android:name=".ActivityUploadPost" />
+        <activity android:name=".ActivityNewPost" />
+        <activity android:name=".MainActivity">
+
         </activity>
     </application>
 

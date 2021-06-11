@@ -51,6 +51,8 @@ class PicDetailActivity : AppCompatActivity() {
                         picRefernce = item
                         GlideApp.with(this)
                             .load(picRefernce)
+//                            .fitCenter()
+//                            .override(400,300)
                             .centerCrop()
                             .into(get_pre_imageView)
 //                       textView2.text = get_pic_uri

@@ -38,8 +38,10 @@ class RecyclerViewAdapter(private val context: Context): RecyclerView.Adapter<Re
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        GlideApp.with(context).load(item.picUriLeft).override(280,500).into(holder.picLeft)
-        GlideApp.with(context).load(item.picUriRight).override(280,500).into(holder.picRight)
+        GlideApp.with(context).load(item.picUriLeft).override(500,400).centerCrop().into(holder.picLeft)
+        GlideApp.with(context).load(item.picUriRight).override(500,400).centerCrop().into(holder.picRight)
+//        GlideApp.with(context).load(item.picUriLeft).into(holder.picLeft)
+//        GlideApp.with(context).load(item.picUriRight).into(holder.picRight)
 //        holder.picRight = item.picUriRight
 //        holder.picLeft.setImageResource(item.picUriLeft)
 //        holder.picRight.setImageResource(item.picUriRight)
@@ -47,14 +49,14 @@ class RecyclerViewAdapter(private val context: Context): RecyclerView.Adapter<Re
             val intent = Intent(context, PicDetailActivity::class.java)
             intent.putExtra(EXTRA_TEXTDATA, item.picUriRight.toString())
             context.startActivity(intent)
-            Toast.makeText(it.context, "Clicked ${item.picUriRight}, ${position}", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(it.context, "Clicked ${item.picUriRight}, ${position}", Toast.LENGTH_SHORT).show()
         }
 
         holder.picLeft.setOnClickListener{
             val intent = Intent(context, PicDetailActivity::class.java)
             intent.putExtra(EXTRA_TEXTDATA, item.picUriLeft.toString())
             context.startActivity(intent)
-            Toast.makeText(it.context, "Clicked ${item.picUriLeft}, ${position}", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(it.context, "Clicked ${item.picUriLeft}, ${position}", Toast.LENGTH_SHORT).show()
         }
 
     }

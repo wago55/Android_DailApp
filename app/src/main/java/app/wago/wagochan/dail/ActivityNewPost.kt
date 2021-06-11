@@ -2,11 +2,13 @@ package app.wago.wagochan.dail
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import kotlinx.android.synthetic.main.activity_new_post.*
 import java.time.temporal.TemporalAdjusters.next
@@ -48,10 +50,15 @@ class ActivityNewPost : AppCompatActivity() {
             finish()
         }
         if(item.itemId == R.id.next_page){
-
-            val toActivityUploadPostIntent = Intent(this, ActivityUploadPost::class.java)
-            toActivityUploadPostIntent.putExtra(EXTRA_TEXTDATA, pic_url)
-            startActivity(toActivityUploadPostIntent)
+            if(pic_url != "") {
+                val toActivityUploadPostIntent = Intent(this, ActivityUploadPost::class.java)
+                toActivityUploadPostIntent.putExtra(EXTRA_TEXTDATA, pic_url)
+                startActivity(toActivityUploadPostIntent)
+                Toast.makeText(applicationContext,"チェックマークを押して投稿を完了しよう", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                Toast.makeText(applicationContext,"画像を選択してください", Toast.LENGTH_SHORT).show()
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -59,8 +66,10 @@ class ActivityNewPost : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         super.onActivityResult(requestCode, resultCode, resultData)
         if (requestCode == readRequestCode && resultCode == Activity.RESULT_OK) {
-            resultData?.data?.also { uri ->imageView.setImageURI(uri)
+            resultData?.data?.also { uri ->
+                imageView.setImageURI(uri)
                 pic_url = uri.toString()
+                Toast.makeText(applicationContext,"右上の矢印で次に進もう", Toast.LENGTH_SHORT).show()
             }
         }
     }

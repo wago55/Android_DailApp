@@ -34,7 +34,7 @@
         app:lottie_rawRes="@raw/loading" />
 
     <ImageView
-        android:id="@+id/get_imageView"
+        android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="297dp"
@@ -42,7 +42,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        android:scaleType="centerCrop"/>
 
     <EditText
         android:id="@+id/comment"
@@ -53,12 +54,14 @@
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="キャプションを入力..."
-        android:inputType="textPersonName"
+
+        android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
